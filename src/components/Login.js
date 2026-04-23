@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom'; // ADDED: Link for navigation
+import API_BASE_URL from './api_config';
 
 const Login = ({ setUser }) => {
   const [role, setRole] = useState('student');

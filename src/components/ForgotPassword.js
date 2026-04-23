@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import API_BASE_URL from './api_config';
 
 const ForgotPassword = () => {
   const [step, setStep] = useState(1); // Step 1: Verify, Step 2: Reset Password

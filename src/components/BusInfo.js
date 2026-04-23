@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_BASE_URL from './api_config';
 
 const BusInfo = () => {
   const [searchTerm, setSearchTerm] = useState("");
