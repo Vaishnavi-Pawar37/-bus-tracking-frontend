@@ -18,7 +18,7 @@ const ForgotPassword = () => {
     setMessage(''); setError('');
 
     try {
-      await axios.post('http://localhost:5000/verify-user-reset', { role, username });
+      await axios.post('https://bus-backend-i8yp.onrender.com/verify-user-reset', { role, username });
       setMessage("Account found! Please set your new password.");
       setStep(2); // Move to Step 2
     } catch (err) {

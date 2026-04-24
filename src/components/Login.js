@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom'; // ADDED: Link for navigation
-import API_BASE_URL from './api_config';
+// import API_BASE_URL from './api_config';
 
 const Login = ({ setUser }) => {
   const [role, setRole] = useState('student');
@@ -12,7 +12,7 @@ const Login = ({ setUser }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/login', { ...credentials, role });
+      const res = await axios.post('https://bus-backend-i8yp.onrender.com/login', { ...credentials, role });
       
       // Update global user state. 
       // NOTE: We inject the 'role' here just in case your backend didn't send it back,

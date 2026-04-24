@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import API_BASE_URL from './api_config';
+// import API_BASE_URL from './api_config';
 
 const AdminDashboard = ({ setUser }) => {
   const [data, setData] = useState({ students: [], drivers: [], busInfo: [] });
@@ -13,7 +13,7 @@ const AdminDashboard = ({ setUser }) => {
   const navigate = useNavigate();
 
   const fetchData = () => {
-    axios.get('http://localhost:5000/admin/data')
+    axios.get('https://bus-backend-i8yp.onrender.com/admin/data')
       .then(res => {
         setData(res.data);
         if (res.data.stats) setGlobalStats(res.data.stats);
@@ -39,7 +39,7 @@ const AdminDashboard = ({ setUser }) => {
         bus_nos: globalStats.bus_nos
       };
       
-      await axios.put('http://localhost:5000/admin/update-stats', formattedStats);
+      await axios.put('https://bus-backend-i8yp.onrender.com/admin/update-stats', formattedStats);
       alert("Global Dashboard Stats Updated!");
       fetchData(); // Refreshes the data globally immediately 
     } catch (err) {
@@ -58,7 +58,7 @@ const AdminDashboard = ({ setUser }) => {
         type: newAsset.type
       };
 
-      await axios.post('http://localhost:5000/admin/add-bus-info', formattedAsset);
+      await axios.post('https://bus-backend-i8yp.onrender.com/admin/add-bus-info', formattedAsset);
       alert("Transport asset added successfully!");
       setNewAsset({ location: '', price: '', type: 'Main City' }); 
       fetchData(); // Refreshes immediately
@@ -70,19 +70,19 @@ const AdminDashboard = ({ setUser }) => {
 
   const handleDeleteAsset = (id) => {
     if (window.confirm("Are you sure you want to delete this stop/pricing?")) {
-      axios.delete(`http://localhost:5000/admin/delete-bus-info/${id}`)
+      axios.delete(`https://bus-backend-i8yp.onrender.com/admin/delete-bus-info/${id}`)
         .then(() => fetchData())
         .catch(err => alert("Delete failed."));
     }
   };
 
   const handleMarkPaid = (id) => {
-    axios.put(`http://localhost:5000/admin/update-fee/${id}`).then(() => fetchData());
+    axios.put(`https://bus-backend-i8yp.onrender.com/admin/update-fee/${id}`).then(() => fetchData());
   };
 
   const handleRemoveStudent = (id) => {
     if (window.confirm("Permanent delete? This cannot be undone.")) {
-      axios.delete(`http://localhost:5000/admin/remove-student/${id}`).then(() => fetchData());
+      axios.delete(`https://bus-backend-i8yp.onrender.com/admin/remove-student/${id}`).then(() => fetchData());
     }
   };
 

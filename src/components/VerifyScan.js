@@ -9,7 +9,7 @@ const VerifyScan = () => {
 
   useEffect(() => {
     // Note: use your local IP here as well if testing on a mobile phone
-    axios.get(`http://192.168.1.X:5000/api/verify-scan/${studentId}`)
+    axios.get(`https://bus-backend-i8yp.onrender.com/api/verify-scan/${studentId}`)
       .then(res => setStudent(res.data))
       .catch(err => setError('Invalid QR Code or Student Not Found.'));
   }, [studentId]);

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import API_BASE_URL from './api_config';
+// import API_BASE_URL from './api_config';
 
 const DriverDashboard = ({ user, setUser }) => {
   const [students, setStudents] = useState([]);
@@ -11,7 +11,7 @@ const DriverDashboard = ({ user, setUser }) => {
   useEffect(() => {
     if (user && user.bus_no) {
       // Make sure to use your IP address if testing on mobile, or localhost for PC
-      axios.get(`http://localhost:5000/driver/students/${user.bus_no}`)
+      axios.get(`https://bus-backend-i8yp.onrender.com/driver/students/${user.bus_no}`)
         .then(res => setStudents(res.data))
         .catch(err => console.error("Error fetching students:", err));
     }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import API_BASE_URL from './api_config';
+// import API_BASE_URL from './api_config';
 
 const BusInfo = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -9,7 +9,7 @@ const BusInfo = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/admin/data')
+    axios.get('https://bus-backend-i8yp.onrender.com/admin/data')
       .then(res => {
         if (res.data.busInfo) setPricingData(res.data.busInfo);
         if (res.data.stats) setStats(res.data.stats);

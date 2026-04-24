@@ -9,7 +9,7 @@ const VerifyStudent = () => {
 
   useEffect(() => {
     // Replace 'localhost' with your computer's IP (e.g., 192.168.1.5) so mobile can connect
-    axios.get(`http://192.168.1.X:5000/api/verify-scan/${studentId}`)
+    axios.get(`https://bus-backend-i8yp.onrender.com/api/verify-scan/${studentId}`)
       .then(res => setStudent(res.data))
       .catch(err => setError(true));
   }, [studentId]);
