@@ -1,7 +1,7 @@
 import React from 'react';
 import QRCode from 'react-qr-code';
 import { useNavigate } from 'react-router-dom';
-// import API_BASE_URL from './api_config';
+
 
 const StudentDashboard = ({ user, setUser }) => {
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import QRCode from 'react-qr-code';
-import API_BASE_URL from './api_config';
+
 
 const Register = () => {
   const [role, setRole] = useState('student');

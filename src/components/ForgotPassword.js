@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import API_BASE_URL from './api_config';
 
 const ForgotPassword = () => {
   const [step, setStep] = useState(1); // Step 1: Verify, Step 2: Reset Password
@@ -37,7 +36,7 @@ const ForgotPassword = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/reset-password', { 
+      await axios.post('https://bus-backend-i8yp.onrender.com/reset-password', { 
         role, 
         username, 
         new_password: passwords.newPassword 
